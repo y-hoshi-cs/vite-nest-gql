@@ -1,0 +1,101 @@
+enum AuthType {
+  USER
+  ADMIN
+}
+
+enum UserFindBy {
+  id
+  name
+  email
+  authType
+}
+
+enum UserOrderBy {
+  id
+  name
+  email
+  createdAt
+  updatedAt
+}
+
+query users(
+  $skip: Float
+  $take: Float
+  $searchString: String
+  $findBy: [UserFindBy!]
+  # orderBy
+) {
+  users(input: {
+    skip: $skip,
+    take: $take,
+    searchString: $searchString,
+    findBy: $findBy,
+  }) {
+    id
+    name
+    email
+    authType
+    updatedAt
+  }
+}
+
+query user(
+  $id: String!
+) {
+  user(id: $id) {
+    id
+    name
+    email
+    authType
+    createdAt
+    updatedAt
+  }
+}
+
+mutation createUser(
+  $name: String!
+  $email: String!
+  $authType: AuthType!
+) {
+  createUser(input: {
+    name: $name,
+    email: $email,
+    authType: $authType,
+  }) {
+    id
+    name
+    email
+    authType
+    createdAt
+    updatedAt
+  }
+}
+
+mutation updateUser(
+  $id: String!
+  $name: String!
+  $email: String!
+  $authType: AuthType!
+) {
+  updateUser(input: {
+    id: $id,
+    name: $name,
+    email: $email,
+    authType: $authType,
+  }) {
+    id
+    name
+    email
+    authType
+    createdAt
+    updatedAt
+  }
+}
+
+mutation deleteUser(
+  $id: String!
+) {
+  deleteUser(id: $id) {
+    id
+  }
+}

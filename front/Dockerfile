@@ -4,4 +4,4 @@ WORkDIR /app
 
 RUN apk add git
 
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]
