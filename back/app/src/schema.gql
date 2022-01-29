@@ -1,0 +1,69 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+  authType: AuthType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum AuthType {
+  USER
+  ADMIN
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  users(input: ConditionUserInput!): [User!]!
+  user(id: String!): User!
+}
+
+input ConditionUserInput {
+  skip: Float
+  take: Float
+  searchString: String
+  findBy: [UserFindBy!]
+  orderBy: UserOrderBy
+}
+
+enum UserFindBy {
+  id
+  name
+  email
+  authType
+}
+
+enum UserOrderBy {
+  id
+  name
+  email
+  createdAt
+  updatedAt
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(input: UpdateUserInput!): User!
+  deleteUser(id: String!): User!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  authType: AuthType!
+}
+
+input UpdateUserInput {
+  id: String!
+  name: String!
+  email: String!
+  authType: AuthType!
+}
