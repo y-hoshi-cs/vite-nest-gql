@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  react:
+    image: react_graph_front
+    container_name: react_graph_front
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    volumes:
+      - ./front/app:/app
+    tty: true
+    ports:
+      - 3000:3000
+  
+  nest: 
+    image: react_graph_back
+    container_name: react_graph_back
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    volumes:
+      - ./back/app:/app
+    tty: true
+    ports:
+      - 3001:3000
+      - 5555:5555
+    depends_on:
+      - mysql
+  
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - react_graph_db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: react_graph_db
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Tokyo
+
+volumes:
+  react_graph_db:
