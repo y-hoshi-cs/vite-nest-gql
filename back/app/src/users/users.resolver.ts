@@ -1,5 +1,4 @@
 import { Query, Args, Resolver, Mutation } from "@nestjs/graphql";
-// import { Prisma } from "@prisma/client";
 import { ConditionUserInput, UserFindBy } from "./inputs/condition-user.input";
 import { CreateUserInput } from "./inputs/create-user.input";
 import { UpdateUserInput } from "./inputs/update-user.input";
@@ -23,7 +22,6 @@ export class UsersResolver {
         where: {
           OR: orWhere,
         },
-        // orderBy: Prisma.UserOrderByWithRelationInput,
       }
     );
   }

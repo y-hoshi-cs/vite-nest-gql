@@ -4,7 +4,6 @@ input.form-control {
   padding: 6px;
   border: 1px solid #ddd;
   font-size: 1.0rem;
-  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); */
 }
 input.form-control:focus {
   outline: none;

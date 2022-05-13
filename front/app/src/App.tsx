@@ -6,7 +6,6 @@ function App() {
     <div className="wrapper">
       <header></header>
       <div className="container">
-        {/* <aside></aside> */}
         <main>
           <UserEdit />
         </main>

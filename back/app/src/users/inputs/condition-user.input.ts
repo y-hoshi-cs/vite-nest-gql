@@ -1,7 +1,6 @@
 import { Field, InputType, registerEnumType } from "@nestjs/graphql";
 import { Prisma } from "@prisma/client";
 
-// TODO: Prisma定義から引っ張る
 export enum UserOrderBy {
   id,
   name,
@@ -10,7 +9,6 @@ export enum UserOrderBy {
   updatedAt,
 }
 
-// TODO: Prisma定義から引っ張る
 export enum UserFindBy {
   id,
   name,

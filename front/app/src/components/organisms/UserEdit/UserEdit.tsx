@@ -6,10 +6,6 @@ import Table from '@molecules/Table/Table';
 import './UserEdit.css';
 import UserModal from './UserModal';
 
-// formik, yup
-// https://qiita.com/SLEAZOIDS/items/e33f81bfa163592578d9
-// https://bvgsoftware.com/blog/react-form-validation-with-formik-graphql-yup/
-
 interface UserEditProps { }
 
 interface IUserTableRow {
@@ -23,7 +19,6 @@ const UserEdit: React.FC<UserEditProps> = ({ }) => {
   const { loading, data, refetch } = useUsersQuery({
     variables: {
       skip: 0,
-      // take: 20,
       searchString: "",
       findBy: [UserFindBy.Name]
     }

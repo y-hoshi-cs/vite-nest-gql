@@ -19,10 +19,6 @@ header {
   box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.3);
 }
 
-aside {
-  width: 280px;
-}
-
 main {
   flex-grow: 1;
   overflow-y: scroll;
